@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:3305}
+spring:
+  profiles:
+    active: ${ACTIVE:local}
+  application:
+    name: ${NAME:tokenization}
+logging:
+  level:
+    ROOT: ${ROOT:INFO}
+  pattern:
+    level: '%5p [${spring.zipkin.service.name:${spring.application.name:}},%X{traceId:-},%X{spanId:-},%X{X-Span-Export:-}]'
